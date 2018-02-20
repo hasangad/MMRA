@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>مرمى</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="backbtn pull-left">
+                <a href="#">
+                    <img src="img/back.png" />
+                </a>
+            </div>
+            <div class="pglist pull-left">
+                <img src="img/pgdetails.png" />
+            </div>
+            <div class="logoimg pull-left">
+                <img src="img/logo.png" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="dtpicker col-xs-6 col-sm-6 col-lg-6">
+                <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+                    <div class='dtpickeritem'>التاريخ</div>
+                </div>
+                <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+                    <div class='dtpickeritemslct'><input type="date" /></div>
+                </div>
+                <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+                    <div class='dtpickeritem' style="margin-top: -13px;">الساعة</div>
+                </div>
+                <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+                    <div class='dtpickeritemslct hourslct'>
+                        <input type="time" />
+                    </div>
+                </div>
+                <div class="linesep"></div>
+                <div class='totalprice col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+                    <span class="normalwhite">المجموع</span>
+                    <span class="boldwhite">400</span>
+                    <span class="normalyellow">ريال</span>
+                </div>
+                <div class='totalprice col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+                    <a href="reserve.html" class="reservelnk">إحجز</a>
+                </div>
+            </div>
+            <div class="pgimg col-xs-8 col-sm-8 col-lg-8">
+                <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                    <img src="img/pg.png" class="col-xs-12 nopadding" />
+                    <div class="pgname">
+                        <span>
+                            ملعب النقرة
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix" style="margin-top: 55%;"></div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+            <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
+                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                        <img class="ico" src="img/ico2.png" width="40" />
+                        <span class="normalwhite desctxt">موقع الملعب</span>
+						<span class="boldyellow">شارع العريفي</span>
+                <a href="playgrounddetails.html" class="normalwhite maplnk">الخريطة</a>
+                    </div>
+                
+            </div>
+            <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
+                <a href="playgrounddetails.html">
+                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                        <img class="ico" src="img/ico1.png" width="40" />
+                        <span class="normalwhite desctxt">سعة الملعب</span>
+						<span class="boldyellow">6X6 لاعبين</span>
+                    </div>
+                </a>
+            </div>
+            </div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+            <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
+                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                        <img class="ico" src="img/ico3.png" width="40" />
+                        <span class="normalwhite desctxt">سعر الملعب</span>
+						<span class="boldyellow">200 ريال </span>
+                    </div>
+                
+            </div>
+            <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
+                <a href="playgrounddetails.html">
+                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                        <img class="ico" src="img/ico4.png" width="40" />
+                        <span class="normalwhite desctxt">صور الملعب</span>
+						<span class="boldyellow">الألبوم</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>
