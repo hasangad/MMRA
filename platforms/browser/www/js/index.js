@@ -76,6 +76,14 @@ var registerdiv = $('#registerdiv');
 var playgroundsdiv = $('#playgroundsdiv');
 var playgrounddetailsdiv = $('#playgrounddetailsdiv');
 var loadingdiv = $('#loadingdiv');
+var reservedate = $('#reservedate');
+var pgpricespan = $('#pgpricespan');
+var pgnamespan = $('#pgnamespan');
+var pgadressspan = $('#pgadressspan');
+var pgcpctyspan = $('#pgcpctyspan');
+var pgpricepspan = $('#pgpricepspan');
+var pgimg = $('#pgimg');
+var pgmaplink = $('#pgmaplink');
 var playground_id_pk;
 
 
@@ -87,18 +95,27 @@ function skiploginregister() {
     return false;
 }
 function displayPlaygroundDetails(id) {
+    var now = new Date();
+
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+    var today = now.getFullYear() + "-" + (month) + "-" + (day);
+    reservedate.val(today);
+
     for (var i = 0; i < pglist.length; i++) {
         if (pglist[i].playground_id_pk == id) {
             playground_id_pk = id;
-            $('#pgpricespan').text(pglist[i].playground_cost);
-            $('#pgnamespan').text(pglist[i].playground_name);
-            $('#pgadressspan').text(pglist[i].playground_address);
-            $('#pgcpctyspan').text(pglist[i].playground_capacity);
-            $('#pgpricepspan').text(pglist[i].playground_cost);
-            $('#pgimg').attr('src', pglist[i].image_name);
-            $('#pgmaplink').attr('href', 'https://www.google.com/maps/?q=' + pglist[i].playground_google_lat + ',' + pglist[i].playground_google_lng);
+            pgpricespan.text(pglist[i].playground_cost);
+            pgnamespan.text(pglist[i].playground_name);
+            pgadressspan.text(pglist[i].playground_address);
+            pgcpctyspan.text(pglist[i].playground_capacity);
+            pgpricepspan.text(pglist[i].playground_cost);
+            pgimg.attr('src', pglist[i].image_name);
+            pgmaplink.attr('href', 'https://www.google.com/maps/?q=' + pglist[i].playground_google_lat + ',' + pglist[i].playground_google_lng);
             playgroundsdiv.hide();
             playgrounddetailsdiv.show();
+
         }
     }
     return false;
@@ -115,12 +132,8 @@ regbtn.click(function () {
 reservebtn.click(function () {
     if (reservedate.val()) {
         if (reservetime.val()) {
-            navigator.notification.alert(
-        'تم حجز الملعب',  // message
-        null,         // callback
-        'تم',            // title
-        'موافق'                  // buttonName
-        );
+
+            navigator.notification.alert('تم حجز الملعب' + reservedate.val() + reservetime.val(), null, 'تم', 'موافق');
         }
     }
     return false;
@@ -221,8 +234,8 @@ userloginbtn.click(function () {
     return false;
 });
 userregisterbtn.click(function () {
-    if (usernametb.val()) {
-        if (passwordtb.val()) {
+    if (rusernametb.val()) {
+        if (rpasswordtb.val()) {
             //ProgressIndicator.showSimple(true);
             loadingdiv.show();
             $.ajax({
@@ -236,17 +249,13 @@ userregisterbtn.click(function () {
                     //ProgressIndicator.hide();
                     loadingdiv.hide();
                     if (data.success == 1) {
+                        navigator.notification.alert('تم تسجيل حسابك بنجاح', null, 'تم', 'موافق');
                         sessionStorage["user_name"] = rusernametb.val();
                         sessionStorage["userid"] = data.id;
                         registerdiv.hide();
                         ShowPlaygrounds();
                     } else {
-                        navigator.notification.alert(
-    'عذرا ولكن البيانات التي قمت بادخالها غير صحيحة!',  // message
-    null,         // callback
-    'خطأ',            // title
-    'موافق'                  // buttonName
-);
+                        navigator.notification.alert('عذرا ولكن البيانات التي قمت بادخالها غير صحيحة!', null, 'خطأ', 'موافق');
                     }
                 }, error: function (a, e, d) {
                     //ProgressIndicator.hide();
@@ -257,22 +266,11 @@ userregisterbtn.click(function () {
             });
 
         } else {
-            navigator.notification.alert(
-    'من فضلك أدخل كلمة المرور!',  // message
-    null,         // callback
-    'خطأ',            // title
-    'موافق'                  // buttonName
-);
+            navigator.notification.alert('من فضلك أدخل كلمة المرور!',null,'خطأ','موافق');
 
         }
     } else {
-        navigator.notification.alert(
-    'من فضلك أدخل اسم المستخدم!',  // message
-    null,         // callback
-    'خطأ',            // title
-    'موافق'                  // buttonName
-);
-
+        navigator.notification.alert('من فضلك أدخل اسم المستخدم!',  null,  'خطأ','موافق');
 
     }
     return false;
