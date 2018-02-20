@@ -40,6 +40,7 @@
 	
 	
     <platform name="android">
+    <allow-intent href="market:*" />
 	  <icon src="resources/icon.jpg" width="1024" height="1024" />
     <icon src="resources/icon.png" width="1024" height="1024" />
   <splash src="resources/screen.png" />
@@ -64,6 +65,8 @@
         <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+	 <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
 	  <icon src="resources/icon.jpg" width="1024" height="1024" />
     <icon src="resources/icon.png" width="1024" height="1024" />
   <splash src="resources/screen.png" />
