@@ -104,10 +104,10 @@
 	
 	
 	
-	  <icon src="icon.jpg" width="1024" height="1024" />
-    <icon src="icon.png" width="1024" height="1024" />
-  <splash src="resources/screen/screen.png" />
-  <splash src="resources/screen/screen.jpg" />
+	  <icon src="resources/icon.jpg" width="1024" height="1024" />
+    <icon src="resources/icon.png" width="1024" height="1024" />
+  <splash src="resources/screen.png" />
+  <splash src="resources/screen.jpg" />
 	
 	
     <access origin="*" />
