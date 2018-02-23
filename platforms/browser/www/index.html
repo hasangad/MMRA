@@ -96,21 +96,34 @@
     </div>
 
     <div id="playgroundsdiv">
-        <div class="container">
-            <div class="row">
 
-                <div class="backbtn pull-left">
-                    <a id="playgroundsbackbtn" href="#">
-                        <img src="img/back.png" />
-                    </a>
-                </div>
-                <div class="pglist pull-left">
-                    <img src="img/pglist.png" />
-                </div>
-                <div class="logoimg pull-left">
-                    <img src="img/logo.png" />
-                </div>
+        <div class="container">
+
+          <div class="row">
+
+              <div class="backbtn pull-left">
+                  <a id="playgroundsbackbtn" href="#">
+                      <img src="img/back.png" />
+                  </a>
+              </div>
+
+              <div class="logoimg pull-right">
+                  <img src="img/logo.png" />
+              </div>
+          </div>
+
+<!-- Tabs --------------------------->
+
+
+        <div class="tab-content">
+
+          <div id="playgroundslistdiv_content" class="tab-pane fade in active">
+
+<center>
+            <div class="pglist">
+                <img src="img/pglist.png" />
             </div>
+  </center>
 
             <div id="playgroundslistdiv">
                 <div class="row pgrow">
@@ -147,8 +160,24 @@
 
 
             </div>
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            <p>Some content in menu 1.</p>
+          </div>
         </div>
+
+        <ul class="nav nav-tabs marma_nav">
+          <li class="active prcnt_1-3"><a data-toggle="tab" href="#playgroundslistdiv_content">الملاعب</a></li>
+          <li class="prcnt_1-3"><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+          <li class="prcnt_1-3"><a data-toggle="tab" href="#menu2">Menu 1</a></li>
+        </ul>
+  <!-- End of tabs  ------------------->
+
+</div>
+
     </div>
+
     <div id="playgrounddetailsdiv">
         <div class="container">
             <div class="row">
@@ -335,7 +364,6 @@
                             <div class="mndblblcell col-xs-6 col-sm-6 col-lg-6"><span>الوقت</span></div>
                             <div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6"><span></span></div>
                         </a></div></div>
-
             </div>
             <div class="actiondiv">
                 <a id="choosemandoob" href="#" class="loginbtn">

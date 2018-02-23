@@ -129,7 +129,7 @@ text-align:center
 }
 .pglist img{
 	width: 100%;
-    margin: 38% auto 10% 0;
+    margin: 0% auto 10% 0;
 }
 .logoimg{
 	width:20%
@@ -141,6 +141,7 @@ text-align:center
 .pgitem{
 background:url(../img/pgitem.png) no-repeat center top;
 background-size: 90%;
+min-height: 100px;
 }
 .pgrow{
 	margin:3%;
@@ -180,7 +181,7 @@ margin-left: 35%;
     padding: 10px;
 }
 .pgname span{
-	
+
     display: block;
     margin-top: 65%;
 
@@ -326,14 +327,24 @@ margin:50% auto;
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+/*-------------- Designer addons ----------*/
+
+#playgroundsdiv { position: relative; height: 100vh;}
+.marma_nav { border-bottom:  none; position: absolute; bottom: 0; left: 0; width:100%; padding: 0;}
+
+.marma_nav li { float: right; border:none !important}
+
+.nav>li>a { background: #cdd118 !important; border:none !important; color:#ffffff; font-weight: 700; font-size: 18px}
+
+.prcnt_1-3 { width:33.2%; }
