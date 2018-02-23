@@ -333,18 +333,16 @@ margin:50% auto;
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
-
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
 /*-------------- Designer addons ----------*/
+#playgroundsdiv { position: relative;
+   height: 100vh;}
+.marma_nav { border-bottom:  none; position: absolute;
 
-#playgroundsdiv { position: relative; height: 100vh;}
-.marma_nav { border-bottom:  none; position: absolute; bottom: 0; left: 0; width:100%; padding: 0;}
-
+   bottom: 0; left: 0; width:100%; padding: 0;}
 .marma_nav li { float: right; border:none !important}
-
 .nav>li>a { background: #cdd118 !important; border:none !important; color:#ffffff; font-weight: 700; font-size: 18px}
-
 .prcnt_1-3 { width:33.2%; }

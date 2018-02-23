@@ -1,163 +1,152 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"/>
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *"/>
+    <!-- Good default declaration: * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly * Disables use of
+    eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this: * Enable inline JS: add 'unsafe-inline' to default-src * Enable eval(): add 'unsafe-eval' to default-src * Create your own at http://cspisawesome.com -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <title>مرمى</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="indexdiv">
-        <div class="app">
+      <div class="app"></div>
+      <div class="loginregister">
+        <div>
+          <a id="regbtn" href="#" class="registerbtn">
+            <img src="img/register.png"/>
+          </a>
         </div>
-        <div class="loginregister">
-            <div>
-                <a id="regbtn" href="#" class="registerbtn">
-                    <img src="img/register.png" />
-                </a>
-            </div>
-            <div>
-                <a id="loginbtn" href="#" class="loginbtn">
-                    <img src="img/login.png" />
-                </a>
-            </div>
+        <div>
+          <a id="loginbtn" href="#" class="loginbtn">
+            <img src="img/login.png"/>
+          </a>
         </div>
-        <div class="skipdiv">
-            <a id="skipbtn" href="#" class="skiplnk">تخطي</a>
-        </div>
+      </div>
+      <div class="skipdiv">
+        <a id="skipbtn" href="#" class="skiplnk">تخطي</a>
+      </div>
     </div>
 
     <div id="logindiv">
-        <div class="app">
-            <span class="logotxt">ملعبك محجوز</span>
+      <div class="app">
+        <span class="logotxt">ملعبك محجوز</span>
+      </div>
+      <div class="loginregister">
+        <div>
+          <div class="form-group">
+            <input id="usernametb" type="text" class="form-control" placeholder="اسم المستخدم"/>
+          </div>
+          <div class="form-group">
+            <input id="passwordtb" type="password" class="form-control" placeholder="كلمة المرور"/>
+          </div>
         </div>
-        <div class="loginregister">
-            <div>
-                <div class="form-group">
-                    <input id="usernametb" type="text" class="form-control" placeholder="اسم المستخدم" />
-                </div>
-                <div class="form-group">
-                    <input id="passwordtb" type="password" class="form-control" placeholder="كلمة المرور" />
-                </div>
-            </div>
-            <div class="actiondiv">
-                <a id="userloginbtn" href="#" class="loginbtn">
-                    <img src="img/login.png" />
-                </a>
-            </div>
+        <div class="actiondiv">
+          <a id="userloginbtn" href="#" class="loginbtn">
+            <img src="img/login.png"/>
+          </a>
         </div>
-        <div class="skipdiv">
-            <a id="skipbtn2" href="#" class="skiplnk">تخطي</a>
-        </div>
+      </div>
+      <div class="skipdiv">
+        <a id="skipbtn2" href="#" class="skiplnk">تخطي</a>
+      </div>
     </div>
 
     <div id="registerdiv">
-        <div class="app">
+      <div class="app"></div>
+      <div class="register">
+        <div>
+          <div class="form-group">
+            <input id="rusernametb" type="text" class="form-control" placeholder="اسم المستخدم"/>
+          </div>
+          <div class="form-group">
+            <input id="rpasswordtb" type="password" class="form-control" placeholder="كلمة المرور"/>
+          </div>
+          <div class="form-group">
+            <input id="remailtb" type="text" class="form-control" placeholder="البريد الالكتروني"/>
+          </div>
+          <div class="form-group">
+            <input id="rphonetb" type="number" class="form-control" placeholder="الجوال"/>
+          </div>
         </div>
-        <div class="register">
-            <div>
-                <div class="form-group">
-                    <input id="rusernametb" type="text" class="form-control" placeholder="اسم المستخدم" />
-                </div>
-                <div class="form-group">
-                    <input id="rpasswordtb" type="password" class="form-control" placeholder="كلمة المرور" />
-                </div>
-                <div class="form-group">
-                    <input id="remailtb" type="text" class="form-control" placeholder="البريد الالكتروني" />
-                </div>
-                <div class="form-group">
-                    <input id="rphonetb" type="number" class="form-control" placeholder="الجوال" />
-                </div>
-            </div>
-            <div class="actiondiv">
-                <a id="userregisterbtn" href="#" class="loginbtn">
-                    <img src="img/register.png" />
-                </a>
-            </div>
+        <div class="actiondiv">
+          <a id="userregisterbtn" href="#" class="loginbtn">
+            <img src="img/register.png"/>
+          </a>
         </div>
-        <div class="skipdiv">
-            <a id="skipbtn3" href="#" class="skiplnk">تخطي</a>
-        </div>
+      </div>
+      <div class="skipdiv">
+        <a id="skipbtn3" href="#" class="skiplnk">تخطي</a>
+      </div>
     </div>
 
     <div id="playgroundsdiv">
 
-        <div class="container">
+      <div class="container">
 
-          <div class="row">
+        <div class="row">
 
-              <div class="backbtn pull-left">
-                  <a id="playgroundsbackbtn" href="#">
-                      <img src="img/back.png" />
-                  </a>
-              </div>
-
-              <div class="logoimg pull-right">
-                  <img src="img/logo.png" />
-              </div>
+          <div class="backbtn pull-left">
+            <a id="playgroundsbackbtn" href="#">
+              <img src="img/back.png"/>
+            </a>
           </div>
 
-<!-- Tabs --------------------------->
+          <div class="logoimg pull-right">
+            <img src="img/logo.png"/>
+          </div>
+        </div>
 
+        <!-- Tabs --------------------------->
 
         <div class="tab-content">
 
           <div id="playgroundslistdiv_content" class="tab-pane fade in active">
 
-<center>
-            <div class="pglist">
-                <img src="img/pglist.png" />
-            </div>
-  </center>
+            <center>
+              <div class="pglist">
+                <img src="img/pglist.png"/>
+              </div>
+            </center>
 
             <div id="playgroundslistdiv">
-                <div class="row pgrow">
-                    <div class="pgitem col-xs-3 col-sm-3 col-lg-3">
-                        <a href="#" onclick="return displayPlaygroundDetails(1)">
-                            <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
-                                <span>ملعب النقرة</span>
-                            </div>
-                        </a>
+              <div class="row pgrow">
+                <div class="pgitem col-xs-3 col-sm-3 col-lg-3">
+                  <a href="#" onclick="return displayPlaygroundDetails(1)">
+                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                      <span>ملعب النقرة</span>
                     </div>
-                    <div class="pgitem col-xs-3 col-sm-3 col-lg-3">
-                        <a href="#" onclick="return displayPlaygroundDetails(1)">
-                            <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
-                                <span>ملعب النقرة</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="pgitem col-xs-3 col-sm-3 col-lg-3">
-                        <a href="#" onclick="return displayPlaygroundDetails(1)">
-                            <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
-                                <span>ملعب النقرة</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="pgitem col-xs-3 col-sm-3 col-lg-3">
-                        <a href="#" onclick="return displayPlaygroundDetails(1)">
-                            <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
-                                <span>ملعب النقرة</span>
-                            </div>
-                        </a>
-                    </div>
+                  </a>
                 </div>
-
-
+                <div class="pgitem col-xs-3 col-sm-3 col-lg-3">
+                  <a href="#" onclick="return displayPlaygroundDetails(1)">
+                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                      <span>ملعب النقرة</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="pgitem col-xs-3 col-sm-3 col-lg-3">
+                  <a href="#" onclick="return displayPlaygroundDetails(1)">
+                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                      <span>ملعب النقرة</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="pgitem col-xs-3 col-sm-3 col-lg-3">
+                  <a href="#" onclick="return displayPlaygroundDetails(1)">
+                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                      <span>ملعب النقرة</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
 
             </div>
           </div>
@@ -168,221 +157,242 @@
         </div>
 
         <ul class="nav nav-tabs marma_nav">
-          <li class="active prcnt_1-3"><a data-toggle="tab" href="#playgroundslistdiv_content">الملاعب</a></li>
-          <li class="prcnt_1-3"><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-          <li class="prcnt_1-3"><a data-toggle="tab" href="#menu2">Menu 1</a></li>
+          <li class="active prcnt_1-3">
+            <a data-toggle="tab" href="#playgroundslistdiv_content">الملاعب</a>
+          </li>
+          <li class="prcnt_1-3">
+            <a data-toggle="tab" href="#menu1">Menu 1</a>
+          </li>
+          <li class="prcnt_1-3">
+            <a data-toggle="tab" href="#menu2">Menu 1</a>
+          </li>
         </ul>
-  <!-- End of tabs  ------------------->
+        <!-- End of tabs ------------------->
 
-</div>
+      </div>
 
     </div>
 
     <div id="playgrounddetailsdiv">
-        <div class="container">
-            <div class="row">
+      <div class="container">
+        <div class="row">
 
-                <div class="backbtn pull-left">
-                    <a id="backtolistbackbtn" href="#">
-                        <img src="img/back.png" />
-                    </a>
-                </div>
-                <div class="pglist pull-left">
-                    <img src="img/pgdetails.png" />
-                </div>
-                <div class="logoimg pull-left">
-                    <img src="img/logo.png" />
-                </div>
+          <div class="backbtn pull-left">
+            <a id="backtolistbackbtn" href="#">
+              <img src="img/back.png"/>
+            </a>
+          </div>
+          <div class="pglist pull-left">
+            <img src="img/pgdetails.png"/>
+          </div>
+          <div class="logoimg pull-left">
+            <img src="img/logo.png"/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="dtpicker col-xs-6 col-sm-6 col-lg-6">
+            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+              <div class='dtpickeritem'>التاريخ</div>
             </div>
-
-            <div class="row">
-                <div class="dtpicker col-xs-6 col-sm-6 col-lg-6">
-                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
-                        <div class='dtpickeritem'>التاريخ</div>
-                    </div>
-                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
-                        <div class='dtpickeritemslct'><input id="reservedate" type="date" /></div>
-                    </div>
-                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
-                        <div class='dtpickeritem' style="margin-top: -13px;">الساعة</div>
-                    </div>
-                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
-                        <div class='dtpickeritemslct hourslct'>
-                            <select id="reservetime" type="time">
-                                <option value="4:00">من 4 الي 6 </option>
-                                <option value="6:00">من 6 الي 8 </option>
-                                <option value="8:00">من 8 الي 10 </option>
-                                <option value="10:00">من 10 الي 12</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="linesep"></div>
-                    <div class='totalprice col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
-                        <span class="normalwhite">المجموع</span>
-                        <span id="pgpricespan" class="boldwhite">400</span>
-                        <span class="normalyellow">ريال</span>
-                    </div>
-                    <div class='totalprice col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
-                        <a id="reservebtn" href="reserve.html" class="reservelnk">إحجز</a>
-                    </div>
-                </div>
-                <div class="pgimg col-xs-8 col-sm-8 col-lg-8">
-                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
-                        <img src="img/pg.png" class="col-xs-12 nopadding" />
-                        <div class="pgname">
-                            <span id="pgnamespan">
-                                ملعب النقرة
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
+            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+              <div class='dtpickeritemslct'><input id="reservedate" type="date"/></div>
             </div>
-            <div class="clearfix" style="margin-top: 55%;"></div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
-                <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
-                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
-                        <img class="ico" src="img/ico2.png" width="40" />
-                        <span class="normalwhite desctxt">موقع الملعب</span>
-                        <span class="boldyellow" id="pgadressspan">شارع العريفي</span>
-                        <a href="#" id="pgmaplink" class="normalwhite maplnk">الخريطة</a>
-                    </div>
-
-                </div>
-                <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
-                    <a href="playgrounddetails.html">
-                        <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
-                            <img class="ico" src="img/ico1.png" width="40" />
-                            <span class="normalwhite desctxt">سعة الملعب</span>
-                            <span class="boldyellow" id="pgcpctyspan">6X6 لاعبين</span>
-                        </div>
-                    </a>
-                </div>
+            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+              <div class='dtpickeritem' style="margin-top: -13px;">الساعة</div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
-                <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
-                    <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
-                        <img class="ico" src="img/ico3.png" width="40" />
-                        <span class="normalwhite desctxt">سعر الملعب</span>
-                        <span class="boldyellow" id="pgpricepspan">200 ريال </span>
-                    </div>
-
-                </div>
-                <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
-                    <a id="pgalbumlnk" href="#">
-                        <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
-                            <img class="ico" src="img/ico4.png" width="40" id="pgimg" />
-                            <span class="normalwhite desctxt">صور الملعب</span>
-                            <span class="boldyellow">الألبوم</span>
-                        </div>
-                    </a>
-                </div>
+            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+              <div class='dtpickeritemslct hourslct'>
+                <select id="reservetime" type="time">
+                  <option value="4:00">من 4 الي 6
+                  </option>
+                  <option value="6:00">من 6 الي 8
+                  </option>
+                  <option value="8:00">من 8 الي 10
+                  </option>
+                  <option value="10:00">من 10 الي 12</option>
+                </select>
+              </div>
             </div>
+            <div class="linesep"></div>
+            <div class='totalprice col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+              <span class="normalwhite">المجموع</span>
+              <span id="pgpricespan" class="boldwhite">400</span>
+              <span class="normalyellow">ريال</span>
+            </div>
+            <div class='totalprice col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding'>
+              <a id="reservebtn" href="reserve.html" class="reservelnk">إحجز</a>
+            </div>
+          </div>
+          <div class="pgimg col-xs-8 col-sm-8 col-lg-8">
+            <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+              <img src="img/pg.png" class="col-xs-12 nopadding"/>
+              <div class="pgname">
+                <span id="pgnamespan">
+                  ملعب النقرة
+                </span>
+              </div>
+            </div>
+          </div>
 
         </div>
+        <div class="clearfix" style="margin-top: 55%;"></div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+          <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
+            <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+              <img class="ico" src="img/ico2.png" width="40"/>
+              <span class="normalwhite desctxt">موقع الملعب</span>
+              <span class="boldyellow" id="pgadressspan">شارع العريفي</span>
+              <a href="#" id="pgmaplink" class="normalwhite maplnk">الخريطة</a>
+            </div>
+
+          </div>
+          <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
+            <a href="playgrounddetails.html">
+              <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                <img class="ico" src="img/ico1.png" width="40"/>
+                <span class="normalwhite desctxt">سعة الملعب</span>
+                <span class="boldyellow" id="pgcpctyspan">6X6 لاعبين</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
+          <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
+            <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+              <img class="ico" src="img/ico3.png" width="40"/>
+              <span class="normalwhite desctxt">سعر الملعب</span>
+              <span class="boldyellow" id="pgpricepspan">200 ريال
+              </span>
+            </div>
+
+          </div>
+          <div class="pgditem col-xs-3 col-sm-3 col-lg-3">
+            <a id="pgalbumlnk" href="#">
+              <div class='col-xs-12 col-sm-4 col-md-3 col-lg-3'>
+                <img class="ico" src="img/ico4.png" width="40" id="pgimg"/>
+                <span class="normalwhite desctxt">صور الملعب</span>
+                <span class="boldyellow">الألبوم</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
 
     </div>
 
     <div id="playgroundpicturesdiv">
-        <div class="container">
-            <div class="row">
+      <div class="container">
+        <div class="row">
 
-                <div class="backbtn pull-left">
-                    <a id="playgrounddetailsbackbtn" href="#">
-                        <img src="img/back.png" />
-                    </a>
-                </div>
-                <div class="pglist pull-left">
-                    <!--<img src="img/pglist.png" />-->
-                </div>
-                <div class="logoimg pull-right">
-                    <img src="img/logo.png" />
-                </div>
-            </div>
-
-            <div id="playgroundpicsdiv">
-                <div class="row"><div class="col-xs-12 col-sm-12 col-lg-12"><img src="" class="col-lg-12" /></div></div>
-
-
-
-            </div>
+          <div class="backbtn pull-left">
+            <a id="playgrounddetailsbackbtn" href="#">
+              <img src="img/back.png"/>
+            </a>
+          </div>
+          <div class="pglist pull-left">
+            <!--<img src="img/pglist.png" />-->
+          </div>
+          <div class="logoimg pull-right">
+            <img src="img/logo.png"/>
+          </div>
         </div>
+
+        <div id="playgroundpicsdiv">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12"><img src="" class="col-lg-12"/></div>
+          </div>
+
+        </div>
+      </div>
     </div>
     <div id="mandoobselectdiv">
-        <div class="container">
-            <div class="row">
+      <div class="container">
+        <div class="row">
 
-                <div class="backbtn pull-left">
-                    <a id="choosemandoobbackbtn" href="#">
-                        <img src="img/back.png" />
-                    </a>
-                </div>
-                <div class="pglist pull-left">
-                    <!--<img src="img/pglist.png" />-->
-                </div>
-                <div class="logoimg pull-right">
-                    <img src="img/logo.png" />
-                </div>
-            </div>
-
-            <div id="manadeebdiv">
-                <div class="row"><div class="col-xs-12 col-sm-12 col-lg-12"><input id="mandoob" type="checkbox" /> <label for="mandoob">mandoob</label></div></div>
-
-            </div>
-            <div class="actiondiv">
-                <a id="choosemandoob" href="#" class="loginbtn">
-                    <img src="img/select.png" />
-                </a>
-            </div>
+          <div class="backbtn pull-left">
+            <a id="choosemandoobbackbtn" href="#">
+              <img src="img/back.png"/>
+            </a>
+          </div>
+          <div class="pglist pull-left">
+            <!--<img src="img/pglist.png" />-->
+          </div>
+          <div class="logoimg pull-right">
+            <img src="img/logo.png"/>
+          </div>
         </div>
+
+        <div id="manadeebdiv">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12"><input id="mandoob" type="checkbox"/>
+              <label for="mandoob">mandoob</label>
+            </div>
+          </div>
+
+        </div>
+        <div class="actiondiv">
+          <a id="choosemandoob" href="#" class="loginbtn">
+            <img src="img/select.png"/>
+          </a>
+        </div>
+      </div>
     </div>
     <div id="mandoobordersdiv">
-        <div class="container">
-            <div class="row">
+      <div class="container">
+        <div class="row">
 
-                <div class="backbtn pull-left col-lg-3">
-                    <!--<a id="choosemandoobbackbtn" href="#">
-                        <img src="img/back.png" />
-                    </a>-->
-                </div>
-                <div class="pglist pull-left">
-                    <img src="img/incommingorders.png" />
-                </div>
-                <div class="logoimg pull-right">
-                    <img src="img/logo.png" />
-                </div>
-            </div>
-
-            <div id="mandooborders" style="direction:rtl">
-                <div class="row"><div class="col-xs-12 col-sm-12 col-lg-12"><a href="#" onclick="return ShowMandoobOrderDetails()">
-                            <div class="mndblblcell col-xs-6 col-sm-6 col-lg-6"><span>الاسم</span></div>
-                            <div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6"><span></span></div>
-                            <div class="mndblblcell col-xs-6 col-sm-6 col-lg-6"><span>اسم الملعب</span></div>
-                            <div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6"><span></span></div>
-                            <div class="mndblblcell col-xs-6 col-sm-6 col-lg-6"><span>التاريخ</span></div>
-                            <div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6"><span></span></div>
-                            <div class="mndblblcell col-xs-6 col-sm-6 col-lg-6"><span>الوقت</span></div>
-                            <div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6"><span></span></div>
-                        </a></div></div>
-            </div>
-            <div class="actiondiv">
-                <a id="choosemandoob" href="#" class="loginbtn">
-                    <img src="img/select.png" />
-                </a>
-            </div>
+          <div class="backbtn pull-left col-lg-3">
+            <!--<a id="choosemandoobbackbtn" href="#"> <img src="img/back.png" /> </a>-->
+          </div>
+          <div class="pglist pull-left">
+            <img src="img/incommingorders.png"/>
+          </div>
+          <div class="logoimg pull-right">
+            <img src="img/logo.png"/>
+          </div>
         </div>
+        <div id="mandooborders" style="direction:rtl">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12">
+              <a href="#" onclick="return ShowMandoobOrderDetails()">
+                <div class="mndblblcell col-xs-6 col-sm-6 col-lg-6">
+                  <span>الاسم</span></div>
+                <div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6">
+                  <span></span></div>
+                <div class="mndblblcell col-xs-6 col-sm-6 col-lg-6">
+                  <span>اسم الملعب</span></div>
+                <div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6">
+                  <span></span></div>
+                <div class="mndblblcell col-xs-6 col-sm-6 col-lg-6">
+                  <span>التاريخ</span></div>
+                <div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6">
+                  <span></span></div>
+                <div class="mndblblcell col-xs-6 col-sm-6 col-lg-6">
+                  <span>الوقت</span></div>
+                <div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6">
+                  <span></span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="actiondiv">
+          <a id="choosemandoob" href="#" class="loginbtn">
+            <img src="img/select.png"/>
+          </a>
+        </div>
+      </div>
     </div>
     <div id="loadingdiv" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding">
-        <img src="img/loading.gif" alt="جاري التحميل ..." width="100" />
+      <img src="img/loading.gif" alt="جاري التحميل ..." width="100"/>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
-
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-
     <script type="text/javascript">
-        app.initialize();
+      app.initialize();
     </script>
-</body>
+  </body>
 </html>
