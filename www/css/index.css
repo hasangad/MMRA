@@ -53,10 +53,23 @@ body {
 	direction: rtl;
 }
 
-#indexdiv,#logindiv,#registerdiv,#playgroundsdiv,#playgrounddetailsdiv{
+#indexdiv,#logindiv,#registerdiv,#playgroundsdiv,#playgrounddetailsdiv,#playgroundpicturesdiv,#mandoobselectdiv,#mandoobordersdiv{
 	display:none;
 }
 
+.mndblblcell{
+background: #eeeeee;
+color:#035d72;
+}
+.mndbvalcell{
+background: #eeeeee;
+color:#035d72;
+}
+.pgimg2{
+	width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 /* Portrait layout (default) */
 .app {
     background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
@@ -156,7 +169,7 @@ background-size: 90%;
     left: 0;
 }
 .pgimg{
-	margin-left: 35%;
+margin-left: 35%;
 	position: absolute;
     left: 0;
 }
@@ -297,11 +310,16 @@ margin:50% auto;
 #loadingdiv{
 	position: absolute;
     left: 0;
-    top: 47%;
+    top: 0;
     text-align: center;
+    background: #035d72;
+    /* opacity: 0.2; */
+    height: 100%;
 	display:none
 }
-
+#loadingdiv img{
+	margin-top: 70%;
+}
 
 @keyframes fade {
     from { opacity: 1.0; }
