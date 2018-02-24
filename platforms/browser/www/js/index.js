@@ -54,6 +54,7 @@ var pgadressspan = $('#pgadressspan');
 var pgcpctyspan = $('#pgcpctyspan');
 var pgpricepspan = $('#pgpricepspan');
 var pgimg = $('#pgimg');
+var pgpicture = $('#pgpicture');
 var pgmaplink = $('#pgmaplink');
 var mandoobselectdiv = $('#mandoobselectdiv');
 var manadeebdiv = $('#manadeebdiv');
@@ -134,6 +135,7 @@ function displayPlaygroundDetails(id) {
                 pgcpctyspan.text(data[0].playground_capacity);
                 pgpricepspan.text(data[0].playground_cost);
                 pgimg.attr('src', data[0].image_name);
+                pgpicture.attr('src', data[0].image_name);
                 pgmaplink.attr('href', 'https://www.google.com/maps/?q=' + data[0].playground_google_lat + ',' + data[0].playground_google_lng);
                 playgroundsdiv.hide();
                 playgrounddetailsdiv.show();
