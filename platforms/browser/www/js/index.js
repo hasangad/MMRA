@@ -93,15 +93,8 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function (id) {
-        navigator.splashscreen.show();
-  setTimeout(function(){
-    navigator.splashscreen.hide();
-  },1500);
-  
-        indexdiv.show();
-
+        
         sessionStorage.clear();
-        console.log('Received Event: ' + id);
     }
 };
 

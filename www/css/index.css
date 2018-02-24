@@ -58,7 +58,7 @@ body {
   direction: rtl;
 }
 
-#indexdiv, #logindiv, #mandoobordersdiv, #mandoobselectdiv, #playgrounddetailsdiv, #playgroundpicturesdiv, #playgroundsdiv, #registerdiv {
+ #logindiv, #mandoobordersdiv, #mandoobselectdiv, #playgrounddetailsdiv, #playgroundpicturesdiv, #playgroundsdiv, #registerdiv {
   display: none;
 }
 
