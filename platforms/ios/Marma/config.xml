@@ -81,11 +81,11 @@
     </feature>
     <name>Marma</name>
     <description>
-        Application that responds to the deviceready event.
-    </description>
+    Application to make playgrounds reservations.
+  </description>
     <author email="support@alatheertech.com" href="http://alatheertech.com">
-        alatheertech
-    </author>
+    alatheertech
+  </author>
     <content src="index.html" />
     <gap:config-file parent="CFBundleShortVersionString" platform="ios">
         <string>100</string>
@@ -156,8 +156,9 @@
     <preference name="ios-statusbarstyle" value="black-opaque" />
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="FadeSplashScreenDuration" value="750" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-installLocation" value="auto" />
-    <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen" value="true" />
 </widget>
