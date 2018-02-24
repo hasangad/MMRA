@@ -61,6 +61,15 @@ var choosemandoobbackbtn = $('#choosemandoobbackbtn');
 var choosemandoob = $('#choosemandoob');
 var mandoobordersdiv = $('#mandoobordersdiv');
 var mandooborders = $('#mandooborders');
+var userprofiletablnk = $('#userprofiletablnk');
+var puserregisterbtn = $('#puserregisterbtn');
+var prusernametb = $('#prusernametb');
+var prpasswordtb = $('#prpasswordtb');
+var premailtb = $('#premailtb');
+var prphonetb = $('#prphonetb');
+var changepasswordlnk = $('#changepasswordlnk');
+var manadeebofferstablnk = $('#manadeebofferstablnk');
+var manadeeborders = $('#manadeeborders');
 var playground_id_pk;
 var mandoobordersLst;
 var app = {
@@ -92,7 +101,7 @@ var app = {
         //receivedElement.setAttribute('style', 'display:block;');
         indexdiv.show();
 
-        window.sessionStorage.clear();
+        sessionStorage.clear();
         console.log('Received Event: ' + id);
     }
 };
@@ -156,6 +165,10 @@ skipbtn3.click(skiploginregister);
 
 regbtn.click(function () {
     indexdiv.hide();
+    rusernametb.val('');
+    rpasswordtb.val('');
+    remailtb.val('');
+    rphonetb.val('');
     registerdiv.show();
     return false;
 });
@@ -177,9 +190,9 @@ reservebtn.click(function () {
                 }
                 if (dt == today) {
                     $.ajax({
-                        type: 'Get',
+                        type: 'POST',
                         url: 'http://clup.alatheertech.com/Api/AddOrederAdmin',
-                        contentType: 'application/json; charset=utf-8',
+                        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
                         dataType: 'json',
                         async: true,
                         data: { 'playground_id': playground_id_pk, 'date_reservation': dt, 'time_reservation': tm, 'user_id': sessionStorage.getItem("userid") },
@@ -219,7 +232,7 @@ reservebtn.click(function () {
                             if (data && data.length > 0) {
                                 var ht = '';
                                 for (var i = 0; i < data.length; i++) {
-                                    ht += '<div class="row"><div class="col-xs-12 col-sm-12 col-lg-12"><input id="mandoob' + data[i].id + '" type="checkbox" class="mandoobchbx" value="' + data[i].id + '"/> <label for="mandoob' + data[i].id + '">' + data[i].user_name + '</label></div></div>';
+                                    ht += '<div class="row"><div class="col-xs-12 col-sm-12 col-lg-12 mandoob"><input id="mandoob' + data[i].id + '" type="checkbox" class="mandoobchbx" value="' + data[i].id + '"/> <label for="mandoob' + data[i].id + '">' + data[i].user_name + '</label></div></div>';
                                 }
                                 manadeebdiv.html(ht);
                                 mandoobselectdiv.show();
@@ -242,6 +255,8 @@ reservebtn.click(function () {
         }
     } else {
         playgrounddetailsdiv.hide();
+        usernametb.val('');
+        passwordtb.val('');
         logindiv.show();
     }
     return false;
@@ -290,10 +305,14 @@ choosemandoob.click(function () {
         var delegates = $('.mandoobchbx:checked').map(function () {
             return $(this).val();
         }).get();
+        loadingdiv.show();
+        var dt = reservedate.val();
+        var tm = reservetime.val();
+        debugger;
         $.ajax({
-            type: 'Get',
+            type: 'POST',
             url: 'http://clup.alatheertech.com/Api/AddOred',
-            contentType: 'application/json; charset=utf-8',
+            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             dataType: 'json',
             async: true,
             data: { 'playground_id': playground_id_pk, 'date_reservation': dt, 'time_reservation': tm, 'user_id': sessionStorage.getItem("userid"), 'delegates': delegates },
@@ -326,6 +345,8 @@ choosemandoob.click(function () {
 
 loginbtn.click(function () {
     indexdiv.hide();
+    usernametb.val('');
+    passwordtb.val('');
     logindiv.show();
     return false;
 });
@@ -334,10 +355,11 @@ userloginbtn.click(function () {
         if (passwordtb.val()) {
             //ProgressIndicator.showSimple(true);
             loadingdiv.show();
+            sessionStorage.clear();
             $.ajax({
-                type: 'Get',
+                type: 'POST',
                 url: 'http://clup.alatheertech.com/Api/Login',
-                contentType: 'application/json; charset=utf-8',
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
                 dataType: 'json',
                 async: true,
                 data: { 'user_name': usernametb.val(), 'password': passwordtb.val() },
@@ -345,7 +367,6 @@ userloginbtn.click(function () {
                     //ProgressIndicator.hide();
                     loadingdiv.hide();
                     if (data.success == 1) {
-                        debugger;
                         sessionStorage.setItem("user_name", usernametb.val());
                         sessionStorage.setItem("userid", data.id);
                         sessionStorage.setItem("is_delegate", data.is_delegate);
@@ -383,9 +404,9 @@ userregisterbtn.click(function () {
             //ProgressIndicator.showSimple(true);
             loadingdiv.show();
             $.ajax({
-                type: 'Get',
+                type: 'POST',
                 url: 'http://clup.alatheertech.com/Api/InsertRegistration',
-                contentType: 'application/json; charset=utf-8',
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
                 dataType: 'json',
                 async: true,
                 data: { 'user_name': rusernametb.val(), 'password': rpasswordtb.val(), 'email': remailtb.val(), 'mobile': rphonetb.val() },
@@ -492,7 +513,7 @@ function ShowMandoobPage() {
     loadingdiv.show();
     $.ajax({
         type: 'Get',
-        url: 'http://clup.alatheertech.com/Api/OneDelegateOrder/5',// + sessionStorage.getItem("userid"),
+        url: 'http://clup.alatheertech.com/Api/OneDelegateOrder/' + sessionStorage.getItem("userid"),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         async: true,
@@ -505,23 +526,27 @@ function ShowMandoobPage() {
                 var ht = '';
                 for (var i = 0; i < data.length; i++) {
                     ht += '<div class="row"><div class="col-xs-12 col-sm-12 col-lg-12"><a href="#" onclick="return ShowMandoobOrderDetails(' + data[i].order_id + ')">' +
-                            '<div class="mndblblcell col-xs-6 col-sm-6 col-lg-6"><span>الاسم</span></div>'+
-                            '<div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6"><span>'+data[i].user_name+'</span></div>'+
-                            '<div class="mndblblcell col-xs-6 col-sm-6 col-lg-6"><span>اسم الملعب</span></div>'+
-                            '<div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6"><span>'+data[i].playground_name+'</span></div>'+
-                            '<div class="mndblblcell col-xs-6 col-sm-6 col-lg-6"><span>التاريخ</span></div>'+
-                            '<div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6"><span>'+data[i].date_order+'</span></div>'+
-                            '<div class="mndblblcell col-xs-6 col-sm-6 col-lg-6"><span>الوقت</span></div>'+
-                            '<div class="mndbvalcell col-xs-6 col-sm-6 col-lg-6"><span>' + data[i].time + '</span></div></a></div></div>';
+                            '<div class="mndblblcell col-xs-4 col-sm-4 col-lg-4"><span>الاسم</span></div>' +
+                            '<div class="mndbvalcell col-xs-8 col-sm-8 col-lg-8"><span>' + data[i].user_name + '</span></div>' +
+                            '<div class="mndblblcell col-xs-4 col-sm-4 col-lg-4"><span>اسم الملعب</span></div>' +
+                            '<div class="mndbvalcell col-xs-8 col-sm-8 col-lg-8"><span>' + data[i].playground_name + '</span></div>' +
+                            '<div class="mndblblcell col-xs-4 col-sm-4 col-lg-4"><span>التاريخ</span></div>' +
+                            '<div class="mndbvalcell col-xs-8 col-sm-8 col-lg-8"><span>' + data[i].date_order + '</span></div>' +
+                            '<div class="mndblblcell col-xs-4 col-sm-4 col-lg-4"><span>الوقت</span></div>' +
+                            '<div class="mndbvalcell col-xs-8 col-sm-8 col-lg-8"><span>' + data[i].time + '</span></div></a></div></div>';
                 }
                 mandooborders.html(ht);
                 mandoobordersdiv.show();
             } else {
+                usernametb.val('');
+                passwordtb.val('');
                 logindiv.show();
                 navigator.notification.alert('عذرا ولكن تعذر تحميل بيانات الطلبات!', null, 'خطأ', 'موافق');
             }
         }, error: function (a, e, d) {
             //ProgressIndicator.hide();
+            usernametb.val('');
+            passwordtb.val('');
             logindiv.show();
             loadingdiv.hide();
             var err = a.responseText + ' ' + e + ' ' + d;
@@ -529,10 +554,11 @@ function ShowMandoobPage() {
         }
     });
 
-    
-}
 
+}
+var order_id;
 function ShowMandoobOrderDetails(id) {
+    order_id = id;
     navigator.notification.prompt(
             'ادخل السعر:',  // message
             onPromptMandoobOrder,                  // callback to invoke
@@ -542,8 +568,220 @@ function ShowMandoobOrderDetails(id) {
     return false;
 }
 function onPromptMandoobOrder(results) {
-    if(results.buttonIndex ==0){
+    if (results.buttonIndex == 1) {
         var enteredVal = results.input1;
+        loadingdiv.show();
+        $.ajax({
+            type: 'POST',
+            url: 'http://clup.alatheertech.com/Api/OrderCost',
+            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+            dataType: 'json',
+            async: true,
+            data: { 'playground_cost': enteredVal, 'id': order_id },
+            success: function (data) {
+                //ProgressIndicator.hide();
+                loadingdiv.hide();
+                if (data.success == 1) {
+                    navigator.notification.alert('تم اضافة عرض السعر بنجاح', null, 'تم', 'موافق');
+                    ShowMandoobPage();
+                } else {
+                    navigator.notification.alert('عذرا ولكن حدث خطأ أثناء اضافة عرض السعر!', null, 'خطأ', 'موافق');
+                }
+            }, error: function (a, e, d) {
+                //ProgressIndicator.hide();
+                loadingdiv.hide();
+                var err = a.responseText + ' ' + e + ' ' + d;
+                alert(err);
+            }
+        });
+    }
+}
 
-    } 
+userprofiletablnk.click(function () {
+    loadingdiv.show();
+    $.ajax({
+        type: 'Get',
+        url: 'http://clup.alatheertech.com/Api/UpdateRegistration/' + sessionStorage.getItem("userid"),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: true,
+        data: {},
+        success: function (data) {
+            //ProgressIndicator.hide();
+            loadingdiv.hide();
+            if (data) {
+                prusernametb.val(data.user_name);
+                premailtb.val(data.email);
+                prphonetb.val(data.mobile);
+            } else {
+                prusernametb.val('');
+                prpasswordtb.val('');
+                premailtb.val('');
+                prphonetb.val('');
+                navigator.notification.alert('عذرا ولكن تعذر تحميل بيانات الملف الشخصي!', null, 'خطأ', 'موافق');
+            }
+        }, error: function (a, e, d) {
+            //ProgressIndicator.hide();
+            prusernametb.val('');
+            prpasswordtb.val('');
+            premailtb.val('');
+            prphonetb.val('');
+            var err = a.responseText + ' ' + e + ' ' + d;
+            alert(err);
+        }
+    });
+});
+
+puserregisterbtn.click(function () {
+    if (usrprofilestate == 'normal') {
+        if (prusernametb.val()) {
+            //ProgressIndicator.showSimple(true);
+            loadingdiv.show();
+            $.ajax({
+                type: 'POST',
+                url: 'http://clup.alatheertech.com/Api/UpdateRegistration/' + sessionStorage.getItem("userid"),
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                dataType: 'json',
+                async: true,
+                data: { 'user_name': prusernametb.val(), 'email': premailtb.val(), 'mobile': prphonetb.val() },
+                success: function (data) {
+                    //ProgressIndicator.hide();
+                    loadingdiv.hide();
+                    if (data.success == 1) {
+                        navigator.notification.alert('تم حفظ بياناتك بنجاح', null, 'تم', 'موافق');
+                    } else {
+                        navigator.notification.alert('عذرا ولكن البيانات التي قمت بادخالها غير صحيحة!', null, 'خطأ', 'موافق');
+                    }
+                }, error: function (a, e, d) {
+                    //ProgressIndicator.hide();
+                    loadingdiv.hide();
+                    var err = a.responseText + ' ' + e + ' ' + d;
+                    alert(err);
+                }
+            });
+
+
+        } else {
+            navigator.notification.alert('من فضلك أدخل اسم المستخدم!', null, 'خطأ', 'موافق');
+        }
+    } else if (usrprofilestate == 'password') {
+        if (prusernametb.val()) {
+            //ProgressIndicator.showSimple(true);
+            loadingdiv.show();
+            $.ajax({
+                type: 'POST',
+                url: 'http://clup.alatheertech.com/Api/UpdatePassWord',
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                dataType: 'json',
+                async: true,
+                data: { 'id': sessionStorage.getItem("userid"), 'password': prpasswordtb.val() },
+                success: function (data) {
+                    //ProgressIndicator.hide();
+                    loadingdiv.hide();
+                    if (data.success == 1) {
+                        $('.passwordlbl').hide();
+                        $('.userdata').show();
+                        usrprofilestate = 'normal';
+                        changepasswordlnk.text('تغيير كلمة المرور');
+                        navigator.notification.alert('تم حفظ بياناتك بنجاح', null, 'تم', 'موافق');
+                    } else {
+                        navigator.notification.alert('عذرا ولكن البيانات التي قمت بادخالها غير صحيحة!', null, 'خطأ', 'موافق');
+                    }
+                }, error: function (a, e, d) {
+                    //ProgressIndicator.hide();
+                    loadingdiv.hide();
+                    var err = a.responseText + ' ' + e + ' ' + d;
+                    alert(err);
+                }
+            });
+
+
+        } else {
+            navigator.notification.alert('من فضلك أدخل اسم المستخدم!', null, 'خطأ', 'موافق');
+        }
+    }
+    return false;
+});
+var usrprofilestate = 'normal';
+changepasswordlnk.click(function () {
+    if (usrprofilestate == 'normal') {
+        prpasswordtb.val('');
+        $('.passwordlbl').show();
+        $('.userdata').hide();
+        usrprofilestate = 'password';
+        changepasswordlnk.text('الغاء الامر');
+    } else if (usrprofilestate == 'password') {
+        $('.passwordlbl').hide();
+        $('.userdata').show();
+        usrprofilestate = 'normal';
+        changepasswordlnk.text('تغيير كلمة المرور');
+    }
+    return false;
+});
+manadeebofferstablnk.click(function () {
+    showManadeebOffers();
+    
+
+});
+
+function showManadeebOffers() {
+    loadingdiv.show();
+    $.ajax({
+        type: 'Get',
+        url: 'http://clup.alatheertech.com/Api/ClientDelegatesOrders/' + sessionStorage.getItem("userid"),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: true,
+        data: {},
+        success: function (data) {
+            //ProgressIndicator.hide();
+            loadingdiv.hide();
+            if (data) {
+                var ht = '';
+                for (var i = 0; i < data.length; i++) {
+                    ht += '<div class="row"><div class="col-xs-12 col-sm-12 col-lg-12"><div class="mndblblcell col-xs-4 col-sm-4 col-lg-4"><span>المندوب</span></div><div class="mndbvalcell col-xs-8 col-sm-8 col-lg-8"><span>' + data[i].delegates_name + '</span></div>' +
+                                '<div class="mndblblcell col-xs-4 col-sm-4 col-lg-4"><span>اسم الملعب</span></div><div class="mndbvalcell col-xs-8 col-sm-8 col-lg-8"><span>' + data[i].playground_name + '</span></div><div class="mndblblcell col-xs-4 col-sm-4 col-lg-4">' +
+                                    '<span>التاريخ</span></div><div class="mndbvalcell col-xs-8 col-sm-8 col-lg-8"><span>' + data[i].date_order + '</span></div><div class="mndblblcell col-xs-4 col-sm-4 col-lg-4">' +
+                                    '<span>الوقت</span></div><div class="mndbvalcell col-xs-8 col-sm-8 col-lg-8"><span>' + data[i].time + '</span></div><div class="mndblblcell col-xs-4 col-sm-4 col-lg-4">' +
+                                    '<span>عرض السعر</span></div><div class="mndbvalcell col-xs-8 col-sm-8 col-lg-8"><span>' + data[i].playground_cost + '</span></div><div class="mndbbtncell col-xs-12 col-sm-12 col-lg-12">' +
+                                    '<a href="#" class="loginbtn" onclick="return SelectMandoobOffer(' + data[i].delegates_id_fk + ', ' + data[i].reservation_id_fk + ', ' + data[i].order_id + ')"><img src="img/select.png" /></a></div></div></div>';
+                }
+                manadeeborders.html(ht);
+            } else {
+                manadeeborders.html('');
+            }
+        }, error: function (a, e, d) {
+            //ProgressIndicator.hide();
+            loadingdiv.hide();
+            var err = a.responseText + ' ' + e + ' ' + d;
+            alert(err);
+        }
+    });
+}
+
+function SelectMandoobOffer(delegates_id_fk, reservation_id_fk, order_id) {
+    loadingdiv.show();
+    $.ajax({
+        type: 'POST',
+        url: 'http://clup.alatheertech.com/Api/SelectDelegates',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: true,
+        data: { 'delegates_id_fk': delegates_id_fk, 'reservation_id_fk': reservation_id_fk, 'order_id': order_id },
+        success: function (data) {
+            //ProgressIndicator.hide();
+            loadingdiv.hide();
+            if (data.success == 1) {
+                navigator.notification.alert('تم اختيار المندوب بنجاح', null, 'تم', 'موافق');
+                showManadeebOffers();
+            } else {
+                navigator.notification.alert('عذرا ولكن حدث خطأ أثناء تنفيذ طلبك!', null, 'خطأ', 'موافق');
+            }
+        }, error: function (a, e, d) {
+            //ProgressIndicator.hide();
+            loadingdiv.hide();
+            var err = a.responseText + ' ' + e + ' ' + d;
+            alert(err);
+        }
+    });
 }

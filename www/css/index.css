@@ -64,14 +64,20 @@ body {
 
 .mndblblcell {
   color: #035d72;
-  background: #eee;
+  background: #cdd118;
+  padding: 5px;
+  float:right;
 }
 
 .mndbvalcell {
   color: #035d72;
-  background: #eee;
+  background: #ffffff;
+  padding: 5px;
+  float:right;
 }
-
+#mandooborders .row{
+	margin-top: 10px;
+}
 .pgimg2 {
   width: 100%;
   margin-top: 5px;
@@ -433,7 +439,8 @@ h1 {
 }
 
 .nav>li>a {
-  font-size: 18px;
+  font-size: 13px;
+  text-align: center;
   font-weight: 700;
   color: #fff;
   border: none !important;
@@ -442,4 +449,35 @@ h1 {
 
 .prcnt_1-3 {
   width: 33.2%;
+}
+.mandoob{
+padding: 4%;
+    border: 1px solid #eee;
+    margin: 2% 0px;
+    color: #ffffff;
+    background: #035d72;
+}.mandoob label{
+	width: 90%;
+    overflow: hidden;
+}
+.profile{
+	width: 80%;
+    margin: 20% auto 10%;
+}
+.passwordlbl{
+	display:none
+}
+#menu2 h3,.control-label{
+	color:#ffffff
+}
+a:focus, a:hover{
+	text-decoration: none;
+    color: #fff;
+}
+.slctbtn img {
+    width: 160px;
+}
+.mndbbtncell{
+margin-bottom: 25px;
+    background: #ffffff;
 }
