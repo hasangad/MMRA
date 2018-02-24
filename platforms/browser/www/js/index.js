@@ -93,12 +93,12 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function (id) {
-        var parentElement = document.getElementById(id);
-        //var listeningElement = parentElement.querySelector('.listening');
-        //var receivedElement = parentElement.querySelector('.received');
-
-        //listeningElement.setAttribute('style', 'display:none;');
-        //receivedElement.setAttribute('style', 'display:block;');
+        navigator.splashscreen.show();
+debugger;
+  setTimeout(function(){
+    navigator.splashscreen.hide();
+  },1000);
+  
         indexdiv.show();
 
         sessionStorage.clear();
@@ -173,7 +173,7 @@ regbtn.click(function () {
     return false;
 });
 reservebtn.click(function () {
-    debugger;
+    
     if (sessionStorage.getItem("userid") != 'undefined') {
         if (reservedate.val()) {
             if (reservetime.val()) {
@@ -308,7 +308,7 @@ choosemandoob.click(function () {
         loadingdiv.show();
         var dt = reservedate.val();
         var tm = reservetime.val();
-        debugger;
+        
         $.ajax({
             type: 'POST',
             url: 'http://clup.alatheertech.com/Api/AddOred',
