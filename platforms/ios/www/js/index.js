@@ -96,7 +96,7 @@ var app = {
         navigator.splashscreen.show();
   setTimeout(function(){
     navigator.splashscreen.hide();
-  },1000);
+  },1500);
   
         indexdiv.show();
 
