@@ -166,5 +166,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "phonegap-plugin-push": {
+    "source": {
+      "type": "registry",
+      "id": "phonegap-plugin-push@~1.8.0"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }
